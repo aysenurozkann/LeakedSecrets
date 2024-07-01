@@ -1,0 +1,28 @@
+
+title = "gitleaks config"
+
+[extend]
+# useDefault will extend the base configuration with the default gitleaks config:
+# https://github.com/zricethezav/gitleaks/blob/master/config/gitleaks.toml
+useDefault = true
+
+[allowlist]
+    description = "Allowlisted files"
+    paths = [
+    '''.automation/test''',
+    '''megalinter-reports''',
+    '''.github/linters''',
+    '''node_modules''',
+    '''.mypy_cache''',
+    '''(.*?)gitleaks\.toml$''',
+    '''(?i)(.*?)(png|jpeg|jpg|gif|doc|docx|pdf|bin|xls|xlsx|pyc|zip)$''',
+    '''(go.mod|go.sum)$''']
+
+[[rules]]
+	description = "AWS Secret Key"
+	regex = '''(?i)aws(.{0,20})?(?-i)['\"][0-9a-zA-Z\/+]{40}['\"]'''
+	tags = ["key","secret", "AWS"]
+[[rules]]
+	description = "AWS cred file info"
+	regex = '''(?i)(aws_access_key_id|aws_secret_access_key)(.{0,20})?=.[0-9a-zA-Z\/+]{20,40}'''
+	tags = ["credentials","AWS"]
