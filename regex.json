@@ -1,0 +1,36 @@
+{
+  
+  "rules": [
+    {
+      "description": "AWS Access Key",
+      "regex": "(?i)AKIA[0-9A-Z]{16}",
+      "tags": ["key", "AWS"]
+    },
+    {
+      "description": "AWS Secret Key",
+      "regex": "(?i)aws_secret_access_key\\s*[:=]\\s*[A-Za-z0-9/+=]{40}",
+      "tags": ["key", "AWS"]
+    },
+    {
+      "description": "Slack Token",
+      "regex": "(?i)xox[baprs]-[A-Za-z0-9]{10,48}",
+      "tags": ["token", "Slack"]
+    },
+    {
+      "description": "Custom API Key",
+      "regex": "(?i)custom_api_key_[A-Za-z0-9]{32}",
+      "tags": ["key", "custom"]
+    }
+  ],
+  "allowlist": {
+    "description": "Sample allowlist",
+    "regexes": [],
+    "files": [],
+    "paths": [],
+    "commits": []
+  },
+  "entropy": {
+    "min": 3.5,
+    "max": 4.5
+  }
+}
