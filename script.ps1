@@ -1,7 +1,7 @@
 <# Toplu Obje Olusturmak Icin Kullanilan Kod Blogu #>
 <# @authors : HarmanGurbulak, AysenurOzkan #>
 
-$excelFilePath = "C:\Users\Casper\Desktop\harmansss.xlsx"  
+$excelFilePath = "C:\Users\Casper\Desktop\EklenecekIPler.xlsx"  
 $excel = New-Object -ComObject Excel.Application       
 $workbook = $excel.Workbooks.Open($excelFilePath
 $worksheet = $workbook.Worksheets.Item(1)                
